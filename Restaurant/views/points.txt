@@ -1,0 +1,2 @@
+First in the case of log in page search through different tables first and which table gives rowecount=1 goto that page.
+In the views directory,keep the common pages (here they are only sign in and login/welcome page)
