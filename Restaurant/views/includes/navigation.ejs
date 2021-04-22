@@ -5,24 +5,29 @@
         <ul class="main-header__item-list">
 
             <li class="main-header__item">
-                <a class="<%= path === '/prods' ? 'active' : '' %>" href="/prods">Products</a>
+                <a class="<%= path === '/customer/home' ? 'active' : '' %>" href="/customer/home">Home</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/cart' ? 'active' : '' %>" href="/cart">Cart</a>
+                <a class="<%= path === '/customer/cart' ? 'active' : '' %>" href="/customer/cart">Cart</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/orders' ? 'active' : '' %>" href="/orders">Orders</a>
+                <a class="<%= path === '/customer/orders' ? 'active' : '' %>" href="/customer/orders">Orders</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/admin/add-product' ? 'active' : '' %>" href="/admin/add-product">Add Product
-                </a>
+                <a class="<%=path === '/customer/profile'  ? 'active' : '' %>"  href="/customer/profile">Profile</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%=path === '/customer/tables'  ? 'active' : '' %>"  href="/customer/tables">Tables</a>
+            </li>
+            <li class="main-header__item">
+                <a class="<%=path === '/login'  ? 'active' : '' %>"  href="/login">Log Out</a>
             </li>
 
         </ul>
     </nav>
 </header>
 
-<nav class="mobile-nav">
+<% /* <nav class="mobile-nav">
         <ul class="mobile-nav__item-list">
                 <li class="mobile-nav__item">
                     <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
@@ -45,4 +50,4 @@
                     </a>
                 </li>
             </ul>
-</nav>
+</nav> */ %>

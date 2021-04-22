@@ -18,15 +18,15 @@ exports.get_test = (req,res,next) => {
 
 
 };
-exports.get_cust_table( (req,res,next) =>{
-    Table.get_customer_table(customer_id).then((answer1)){
+exports.get_cust_table =(req,res,next) =>{
+    Table.get_customer_table(customer_id).then((answer1) => {
         res.render('customer/tables',{
             path: '/customer/tables',
             tables_booked: answer1,
 
-        })
-    }
-})
+        });
+    })
+};
 
 exports.post_test = (req,res,next) => {
     const title = req.body.title;
