@@ -1,0 +1,62 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('./includes/navigation.ejs') %>
+
+<main>
+    <%= totalprice %>
+    <form action="/customer/orders" method="post">
+
+        <button type="submit">Buy</button>
+    </form>
+    
+    <h3><% if (cart_items.length  == 0 ){ %>
+        Cart is empty.Add products to cart to buy them.
+    <% } %></h3>
+
+    <div class="grid">
+    <% cart_items.forEach(function(item) { %> 
+    <article class="card product-item">
+        <header class="card__header">
+            <h1 class="product__title">
+                <%= item.name %>
+            </h1>
+        </header>
+        <div class="card__content">
+            <h2 class="product__price">$
+                <%= item.price %>
+               
+            </h2>
+            <p class="product__description">Qt Ord:
+                <%= item.quantity %> 
+            </p>
+            
+        </div>
+        <div class="card__actions">
+            <form action="/customer/cart#delete_item" method="post">
+                <button class="btn" type="submit">Delete from cart</button>
+                <input type="hidden" name="recipe_id" value=<%= item.recipe_id %>>
+            </form>
+        </div>
+    </article>
+    <% }); %>
+    </div>
+    <% if(cart_items.length!=0){ %>
+        <form action="customer/orders" method="post">
+            <label for="address">Choose address</label>
+            <select name="address">
+                <% addrs.forEach(function(addr) { %>
+                    <option value="<%= addr.name %>" ><%= addr.name %></option>
+                <% }); %>
+            </select>
+            <button class="btn" type="submit">Make the order</button>
+        </form>
+    <% } %>
+
+    
+      
+</main>
+<%- include('./includes/end.ejs') %>

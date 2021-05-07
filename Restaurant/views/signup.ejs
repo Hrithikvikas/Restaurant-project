@@ -1,0 +1,17 @@
+<form>
+    sign up either as a customer / delivery person
+    <label for="name">Name:</label>
+    <input type="text" required>
+    <label for="number">Mobile Number:</label>
+    <input type="tel" name="number" value="" pattern="[0-9]{10}" placeholder="9999999999">
+    <label for="email_id">Email:</label>
+    <input type="email" name="email_id" value="" placeholder="example@gmail.com">
+    <label for="password">Password:</label>
+    <label for="address">Address:</label>
+    <select name="address" >
+        <option value="">None</option>
+        <option value="addr1">Addr1</option>
+    </select>
+    <button onclick="somefunc">Sign up As Customer</button>
+    <button onclick="somefunc">Sign up As Delivery Person</button>
+</form>

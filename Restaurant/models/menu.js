@@ -1,4 +1,4 @@
-const  pool = require('../models/database');
+const  pool = require('../utils/database');
 
 module.exports = class Menu{
 
@@ -10,10 +10,11 @@ module.exports = class Menu{
     }
     
     add_menu_item(){//need to add to menu_recipe and grocery
-        return pool.query('update')
+        // return pool.query('update')
+        return 0;
     }
 
     static get_menu(){
-        return pool.query('select recipe_id, name, category, price from menu_recipe where status = ‘available’;');
+        return pool.query("select recipe_id,name,category,price from menu_recipe where status = $1;",['available']);
     }
 }
