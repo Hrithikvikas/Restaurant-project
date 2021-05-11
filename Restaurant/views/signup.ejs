@@ -1,17 +1,61 @@
-<form>
+<form action="/signup" method="post">
     sign up either as a customer / delivery person
     <label for="name">Name:</label>
-    <input type="text" required>
+    <input name="name"type="text" required>
     <label for="number">Mobile Number:</label>
     <input type="tel" name="number" value="" pattern="[0-9]{10}" placeholder="9999999999">
     <label for="email_id">Email:</label>
-    <input type="email" name="email_id" value="" placeholder="example@gmail.com">
+    <input type="email" name="email_id" value="" placeholder="example@gmail.com" required>
     <label for="password">Password:</label>
+    <input type="password" name="passwd" value="" placeholder="" required>
+    <br><br>
+    <label for="address">Choose Account Type:</label>
+    <select name="account_type">
+        <option value="customer">Customer</option>
+        <option value="delivery">Delivery Person</option>
+    </select>
+    <br><br>
+    If you chose customer above,then fill this:
     <label for="address">Address:</label>
     <select name="address" >
         <option value="">None</option>
-        <option value="addr1">Addr1</option>
+        <% addrs.forEach(function(addr) { %>
+            <option value="<%= addr.addr_id %>" ><%= addr.name %></option>
+        <% }); %>
     </select>
-    <button onclick="somefunc">Sign up As Customer</button>
-    <button onclick="somefunc">Sign up As Delivery Person</button>
+    <br>
+    If you chose delivery above,then fill this:
+    <label for="prim_address">Primary Address:</label>
+    <select name="prim_address" >
+        <% addrs.forEach(function(addr) { %>
+            <option value="<%= addr.addr_id %>" ><%= addr.name %></option>
+        <% }); %>
+    </select>
+    <label for="sec_address">Secondary Address:</label>
+    <select name="sec_address" >
+        <% addrs.forEach(function(addr) { %>
+            <option value="<%= addr.addr_id %>" ><%= addr.name %></option>
+        <% }); %>
+    </select>
+    <button type="submit"> Sign Up</button>
 </form>
+<script>
+    function openForm1() {
+      document.getElementById("custform").style.display = "block";
+      closeForm2();
+    }
+    
+    function closeForm1() {
+
+      document.getElementById("custform").style.display = "none";
+    }
+
+    function openForm2() {
+      document.getElementById("delform").style.display = "block";
+      closeForm1();
+    }
+    
+    function closeForm2() {
+      document.getElementById("delform").style.display = "none";
+    }
+ </script>

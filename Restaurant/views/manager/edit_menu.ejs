@@ -1,0 +1,114 @@
+
+
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('./includes/navigation.ejs') %>
+
+<main>
+    <%= cat1_name %>
+    
+    <div class="grid">
+    <% cat1.forEach(function(item){ %>
+        <article class="card product-item">
+            <header class="card__header">
+                <h1 class="product__title">
+                    <%= item.name %>
+                </h1>
+            </header>
+                
+               
+           
+            <div class="card__actions">
+                <form action="/manager/edit_menu" method="post">
+                    
+                    <label for="number">Price:</label>
+                    <input type="number" name="price" value="<%= item.price %>" step="1">
+                    <input type="hidden" name="recipeid" value=<%= item.recipe_id %>>
+                    <label for="status">Choose status:</label>
+                    <select name="status">
+                        <% if(item.status=="available"){ %>
+                            <option value="available" selected>Available</option>
+                            <option value="not_available" >Not Available</option>
+                        <% }else{ %>
+                            <option value="available" >Available</option>
+                            <option value="not_available" selected >Not Available</option>
+                        <% } %>
+                    </select>
+                    <button class="btn" type="submit">Save</button>
+                </form>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+
+    <%= cat2_name %>
+    <div class="grid">
+    <% cat2.forEach(function(item){ %>
+        <article class="card product-item">
+            <header class="card__header">
+                <h1 class="product__title">
+                    <%= item.name %>
+                </h1>
+            </header>
+
+            <div class="card__actions">
+                <form action="/manager/edit_menu" method="post">
+                    <label for="number">Price:</label>
+                    <input type="number" name="price" value="<%= item.price %>" step="1">
+                    <input type="hidden" name="recipeid" value=<%= item.recipe_id %>>
+                    <label for="status">Choose status:</label>
+                    <select name="status">
+                        <% if(item.status=="available"){ %>
+                            <option value="available" selected>Available</option>
+                            <option value="not_available" >Not Available</option>
+                        <% }else{ %>
+                            <option value="available" >Available</option>
+                            <option value="not_available" selected >Not Available</option>
+                        <% } %>
+                    </select>
+                    <button class="btn" type="submit">Save</button>
+                </form>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+
+    <%= cat3_name %>
+    <div class="grid">
+    <% cat3.forEach(function(item){ %>
+        <article class="card product-item">
+            <header class="card__header">
+                <h1 class="product__title">
+                    <%= item.name %>
+                </h1>
+            </header>
+                
+            
+            <div class="card__actions">
+                <form action="/manager/edit_menu" method="post">
+                    <label for="number">Price:</label>
+                    <input type="number" name="price" value="<%= item.price %>" step="1">
+                    <input type="hidden" name="recipeid" value=<%= item.recipe_id %>>
+                    <label for="status">Choose status:</label>
+                    <select name="status">
+                        <% if(item.status=="available"){ %>
+                            <option value="available" selected>Available</option>
+                            <option value="not_available" >Not Available</option>
+                        <% }else{ %>
+                            <option value="available" >Available</option>
+                            <option value="not_available" selected >Not Available</option>
+                        <% } %>
+                    </select>
+                    <button class="btn" type="submit">Save</button>
+                </form>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+
+
+</main>

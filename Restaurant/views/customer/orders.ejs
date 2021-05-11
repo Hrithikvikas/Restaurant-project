@@ -1,0 +1,76 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('./includes/navigation.ejs') %>
+
+<main>
+    <h2>Orders for <%= cust_name %></h2>
+    <% if (pending_orders.length!=0){ %>
+        <h2>Your Pending Orders</h2>
+    <% } %>
+
+    
+    <div class="grid">
+    <% pending_orders.forEach(function(item){ %>
+        <article class="card__order_details">
+            <header class="card__header">
+                <h1 class="order__id">Order ID: 
+                    <%= item.order_id %>
+                </h1>
+            </header>
+                <h4 class="order__desc">Order Description: 
+                    <%= item.order_desc %>
+                </h4>
+           
+            <div class="card__actions"> 
+                    <h3>Order Contents:</h3>
+                    <% let menu_item_vec = item.menu_names.split("~") %>
+                    
+                    <% let quant_vec = item.quantity.split("~") %>
+
+                    <% for (var i=0; i < menu_item_vec.length;  i++ ) { %>
+                    <br/> Name: <%= menu_item_vec[i] %> Quantity: <%= quant_vec[i] %>  
+                    <% } %>
+                    <br/>
+                
+               
+            </div>
+            <h3>Order Status: </h3><h4><%= item.status %></h4>
+        </article>  
+    <% }); %>
+    </div>
+
+    <% if (delivered_orders.length!=0){ %>
+        <h2>Your Previous Orders</h2>
+    <% } %>
+    <div class="grid">
+        <% delivered_orders.forEach(function(item){ %>
+            <article class="card__order_details">
+                <header class="card__header">
+                    <h1 class="order__id">Order Id: 
+                        <%= item.order_id %>
+                    </h1>
+                </header>
+                    <h4 class="order__desc">Order Description: 
+                        <%= item.order_desc %>
+                    </h4>
+               
+                <div class="card__actions"> 
+                        <% let menu_item_vec = item.menu_names.split("~") %>
+                        
+                        <% let quant_vec = item.quantity.split("~") %>
+    
+                        <% for (var i=0; i < menu_item_vec.length;  i++ ) { %>
+                        <br/> Name: <%= menu_item_vec[i] %> Quantity: <%= quant_vec[i] %>  
+                        <% } %>
+                        <br/>
+                    
+                   
+                </div>
+            </article>  
+        <% }); %>
+        </div>
+</main>

@@ -1,0 +1,35 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('./includes/navigation.ejs') %>
+
+<main>
+    <h2>Pending Orders</h2>
+    <div class="grid">
+    <% c1.forEach(function(item){ %>
+        <article class="card__order_details">
+            <header class="card__header">
+                <h1 class="order__id">Customer Name: 
+                    <%= item.name %>
+                </h1>
+            </header>
+                <h2 class="order__desc">Customer Phone no: 
+                    <%= item.phone %>
+                </h2>
+           
+            <div class="card__actions">
+                <form action="/delivery/home" method="post">
+                    <h4>Order Destination : <%= item.order_dest %></h4>
+                    <h4>Order Description : <%= item.order_desc %></h4>
+                    <button class="btn" type="submit">Order Delivered</button>
+                    <input type="hidden" name="order_id" value=<%= item.order_id %> >
+                </form>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+
+</main>

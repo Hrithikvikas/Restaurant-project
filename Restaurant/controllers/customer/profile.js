@@ -41,7 +41,9 @@ exports.post_edit_profile = (req,res,next) => {
     const address=req.body.address;
     
     const { cookies } =req;
-    console.log(cookies);
+    console.log('Editing profile');
+
+    console.log(req.body.address)
     if('user_id' in cookies){
         console.log('correct page')
         const cust_id=cookies.user_id;

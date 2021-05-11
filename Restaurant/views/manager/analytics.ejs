@@ -1,0 +1,77 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('./includes/navigation.ejs') %>
+
+<main>
+    <h1>Analytics</h1>
+    <div class="grid">
+        <article class="card product-item">
+    	<h2>NUMBER OF ONLINE ORDERS RECIEVED IN LAST ONE WEEK versus ORDER DESTINATION ADDRESS plot</h2>
+    	<br><br>
+    <% c1.forEach(function(item){ %>               
+            <div class="card__actions">
+                <label>ORDER DESTINATION ID : </label>
+                <label for="order_dest"><%= item.order_dest %> </label>
+                </br>
+                <label>NUMBER OF ORDERS : </label>
+                <label for="number_of_orders"><%= item.number_of_orders %> </label>
+                </br>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+    <div class="grid">
+        <article class="card product-item">
+    	<h2>TOTAL NUMBER OF ORDERS PREPARED BY KITCHEN IN LAST ONE WEEK : </h2>
+    	<br><br>
+    <% c2.forEach(function(item){ %>               
+            <div class="card__actions">
+                <label for="total_orders"><%= item.total_orders %> </label>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+    <div class="grid">
+        <article class="card product-item">
+    	<h2>AMOUNT OF EACH RECIPE ORDERED BY ONLINE ORDERS</h2>
+    	<br><br>
+    <% c3.forEach(function(item){ %>               
+            <div class="card__actions">
+                <label>RECIPE NAME : </label>
+                <label for="name"><%= item.name %> </label>
+                </br>
+                <label>QUANTITY : </label>
+                <label for="quantity"><%= item.quantity %> </label>
+                </br>
+                <label>ORDERED DATE : </label>
+                <label for="mydate"><%= item.mydate.toDateString() %> </label>
+                </br>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+    <div class="grid">
+        <article class="card product-item">
+    	<h2>AMOUNT OF EACH RECIPE ORDERED BY DINE IN ORDERS</h2>
+    	<br><br>
+    <% c4.forEach(function(item){ %>               
+            <div class="card__actions">
+                <label>RECIPE NAME : </label>
+                <label for="name"><%= item.name %> </label>
+                </br>
+                <label>QUANTITY : </label>
+                <label for="quantity"><%= item.quantity %> </label>
+                </br>
+                <label>ORDERED DATE : </label>
+                <label for="mydate"><%= item.mydate.toDateString() %> </label>
+                </br>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+</main>
+</body>

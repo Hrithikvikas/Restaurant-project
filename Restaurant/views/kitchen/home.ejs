@@ -1,0 +1,73 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('./includes/navigation.ejs') %>
+
+<main>
+    <h1><%= cat1_name %></h1>
+    <div class="grid">
+    <% cat1.forEach(function(item){ %>
+        <article class="card__order_details">
+            <header class="card__header">
+                <h1 class="order__id">Table ID: 
+                    <%= item.table_id %>
+                </h1>
+            </header>
+                <h4 class="order__desc">Order Description: 
+                    <%= item.order_desc %>
+                </h4>
+           
+            <div class="card__actions">
+                <form action="/kitchen/home" method="post">
+                    <!-- <h5>Menu Items : <%= item.menu_items %></h5> -->
+                    <% let menu_item_vec = item.menu_items.split("~") %>
+                    <!-- <h5>Quantity : <%= item.quantity %></h5> -->
+                    <% let quant_vec = item.quantity.split("~") %>
+
+                    <% for (var i=0; i < menu_item_vec.length;  i++ ) { %>
+                    <br/> Name: <%= menu_item_vec[i] %> Quantity: <%= quant_vec[i] %>  
+                    <% } %>
+                    <br/>
+                    <button class="btn" type="submit">Order Prepared</button>
+                    <input type="hidden" name="order_id" value=<%= item.order_id %> >
+                </form>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+
+    <h1><%= cat2_name %></h1>
+    <div class="grid">
+    <% cat2.forEach(function(item){ %>
+        <article class="card__order_details">
+            <header class="card__header">
+                <h1 class="order__id"> Order ID: 
+                    <%= item.order_id %>
+                </h1>
+            </header>
+                <h4 class="order__desc">Order Description: 
+                    <%= item.order_desc %>
+                </h4>
+                           
+            <div class="card__actions">
+                <form action="/kitchen/home" method="post">
+                    <!-- <h5>Menu Items : <%= item.menu_items %></h5> -->
+                    <% let menu_item_vec = item.menu_items.split("~") %>
+                    <!-- <h5>Quantity : <%= item.quantity %></h5> -->
+                    <% let quant_vec = item.quantity.split("~") %>
+
+                    <% for (var i=0; i < menu_item_vec.length;  i++ ) { %>
+                    <br/> Name: <%= menu_item_vec[i] %> Quantity: <%= quant_vec[i] %>  
+                    <% } %>
+                    <br/>
+                    <button class="btn" type="submit">Order Prepared</button>
+                    <input type="hidden" name="order_id" value=<%= item.order_id %> >
+                </form>
+            </div>
+        </article>  
+    <% }); %>
+    </div>
+</main>

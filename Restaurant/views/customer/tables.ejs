@@ -1,16 +1,17 @@
 <%- include('./includes/head.ejs') %>
 <link rel="stylesheet" href="/css/forms.css">
 <link rel="stylesheet" href="/css/product.css">
+<style>.form-popup{display: none;}</style>
 </head>
 
 <body>
 <%- include('./includes/navigation.ejs') %>
 
 <main>
-    <button type="button" onclick="openForm()">Book Table</button>
+    <button class="open-button" onclick="openForm()">Book Table</button>
 
-    <div class="form-popup" id="myForm">
-        <form action="/customer/booktable" method="post" class="form-container">  
+    <div class="form-popup" id="myForm" >
+        <form action="/customer/tables" method="post" class="form-container">  
             <label for="slot_no">Choose a slot </label>
             <select name="slot_no">
                 <option value="1">Slot 1</option>
@@ -23,7 +24,22 @@
       </div>
 
       <h2>Tables booked for today</h2>
-      <% /* need to show already booked tables here */
+      <div class="grid">
+        <% tables_booked.forEach(function(item) { %> 
+        <article class="card product-item">
+            <header class="card__header">
+                <h2 class="product__title">
+                    Table Id: <%= item.table_id %>
+                </h2>
+            </header>
+            <h3>Slot No:<%= item.slot_no %></h3>
+              <h3>Capacity: <%= item.seater %></h3>
+                
+            </div>
+            
+        </article>
+        <% }); %>
+      
 </main>
 
 <script>

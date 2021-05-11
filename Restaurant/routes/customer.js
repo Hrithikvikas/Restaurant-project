@@ -28,12 +28,5 @@ router.post('/tables',tableCon.post_choose_slot);
 router.get('/booktable',booktableCon.get_avl_tables);
 router.post('/booktable',booktableCon.post_select_table);
 
-// router.get('/prods',adminCon.get_test_products);
-// // router.post('/prods',adminCon.post_test_products);
 
-// router.get('/cart', cartCon.get_test_cart);
-// router.post('/cart',cartCon.post_test_cart);
-
-// router.get('/orders',ordersCon.get_orders);
-// router.post('/orders',ordersCon.post_add_order);
 module.exports = router;

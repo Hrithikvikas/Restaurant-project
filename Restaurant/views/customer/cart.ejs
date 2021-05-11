@@ -7,14 +7,13 @@
 <%- include('./includes/navigation.ejs') %>
 
 <main>
-    <%= totalprice %>
-    <form action="/customer/orders" method="post">
-
-        <button type="submit">Buy</button>
-    </form>
     
     <h3><% if (cart_items.length  == 0 ){ %>
         Cart is empty.Add products to cart to buy them.
+    <% }else{%>
+    <h2>TOTAL CART AMOUNT :
+    <%= totalprice %>
+    </h2>
     <% } %></h3>
 
     <div class="grid">
@@ -38,20 +37,27 @@
         <div class="card__actions">
             <form action="/customer/cart#delete_item" method="post">
                 <button class="btn" type="submit">Delete from cart</button>
-                <input type="hidden" name="recipe_id" value=<%= item.recipe_id %>>
+                <input type="hidden" name="recipe_id" value=<%= item.recipe_id %> >
             </form>
         </div>
     </article>
     <% }); %>
     </div>
     <% if(cart_items.length!=0){ %>
-        <form action="customer/orders" method="post">
+        <form action="/customer/orders" method="post">
             <label for="address">Choose address</label>
             <select name="address">
                 <% addrs.forEach(function(addr) { %>
-                    <option value="<%= addr.name %>" ><%= addr.name %></option>
+                    <option value="<%= addr.addr_id %>" ><%= addr.name %></option>
                 <% }); %>
             </select>
+            <br></br>
+            <label for="Number">Phone Number:</label>
+            <input type="tel" name="number" value="" pattern="[0-9]{10}" required>
+            <br></br>
+            <label for="order_desc">Order Description:</label>
+            <input type="text" name="order_desc">
+            <br></br>
             <button class="btn" type="submit">Make the order</button>
         </form>
     <% } %>

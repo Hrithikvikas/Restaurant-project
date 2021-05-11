@@ -7,7 +7,8 @@ exports.get_cart = (req,res,next) => {
         console.log('correct page')
         const cust_id=cookies.user_id;
         if(cookies.account_type=='customer'){
-            Cust.get_all_cart(cust_id).then((answer1) =>{
+            // res.clearCookie('username');
+            Cust.get_cart(cust_id).then((answer1) =>{
                 Addr.get_addresses().then((answer2) =>{
                     var totalprice=0;
                     var p1=answer1.rows;
@@ -15,6 +16,7 @@ exports.get_cart = (req,res,next) => {
                        totalprice=totalprice+c_row.quantity*c_row.price;
                     });
                 // var 
+                    console.log(p1);
                     res.render('./customer/cart',{
                     pageTitle: 'Cart',
                     path: '/customer/cart',

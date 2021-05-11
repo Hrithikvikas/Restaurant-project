@@ -2,7 +2,6 @@ const Cust =require('../../models/customer');
 const Menu = require('../../models/menu');
 
 exports.get_home = (req,res,next) => {
-    
     const { cookies } =req;
     console.log(cookies);
     if('user_id' in cookies){
@@ -44,16 +43,12 @@ exports.get_home = (req,res,next) => {
         }
         else{
             //send message saying that you are not a customer.
+            res.redirect(cookies.account_type+'/home');
         }
     }
     else{
-
+        res.redirect('/login');
     }
-    
-    
- 
-
-
 };
 
 //we have addtocart button

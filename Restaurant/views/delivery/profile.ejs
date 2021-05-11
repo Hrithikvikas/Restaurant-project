@@ -1,0 +1,47 @@
+
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('./includes/navigation.ejs') %>
+
+<main>
+    <form action="/delivery/profile" method="post">
+        <label for="deliv_name">Name:</label>
+        <input type="text" name="deliv_name" value="<%= deliv.name %>" >
+        <label for="email_id">Email:</label>
+        <input type="email" name="email_id"  value="<%= deliv.email %>" readonly>
+        <label for="number">Phone Number:</label>
+        <input type="tel" name="number" value="<%= deliv.phone %>" pattern="[0-9]{10}">
+        <label for="passwd">Password:</label>
+        <input type="password" name="passwd" value="<%= deliv.password %>" readonly>
+        <label for="primary_address">Primary address:</label>
+            <select name="primary_address">
+                <% if (deliv.primary_address){ %>
+                    <% addrs.forEach(function(addr) { %>
+                            <% if (deliv.primary_address==addr.addr_id){ %>
+                                <option value="<%= addr.addr_id %>" selected><%= addr.name %></option>
+                            <% } else{%>
+                                <option value="<%= addr.addr_id %>" ><%= addr.name %></option>
+                            <% } %> 
+                    <% }); %>
+                <% } %>     
+            </select>
+        <label for="secondary_address">Secondary address:</label>
+            <select name="secondary_address">
+                <% if (deliv.secondary_address){ %>
+                    <% addrs.forEach(function(addr) { %>
+                            <% if (deliv.secondary_address==addr.addr_id){ %>
+                                <option value="<%= addr.addr_id %>" selected><%= addr.name %></option>
+                            <% } else{%>
+                                <option value="<%= addr.addr_id %>" ><%= addr.name %></option>
+                            <% } %> 
+                    <% }); %>
+                <% } %>
+            </select>
+        <button class="btn" type="submit">Save</button>
+    </form>
+ 
+</main>

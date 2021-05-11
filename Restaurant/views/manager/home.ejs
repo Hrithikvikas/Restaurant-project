@@ -1,0 +1,76 @@
+<%- include('./includes/head.ejs') %>
+<link rel="stylesheet" href="/css/forms.css">
+<link rel="stylesheet" href="/css/product.css">
+</head>
+
+<body>
+<%- include('./includes/navigation.ejs') %>
+
+<main>
+
+    Booked Tables:
+
+    
+
+    <div class="grid">
+    <% booked_tables.forEach(function(item) { %> 
+    <article class="card product-item">
+        <header class="card__header">
+            <h1 class="product__title">
+                <%= item.table_id %>
+                <%= item.slot_no %>
+                
+                
+            </h1>
+        </header>
+        <div class="card__content">
+            <h2 class="product__price">$
+                <%= item.seater %>
+                <%= item.name %>
+               
+            </h2>
+            
+            
+        </div>
+        <form action="/manager/home" method="post">    
+            <input type="hidden" name="table_id" value="<%= item.table_id %>" >
+            <input type="hidden" name="customer_id" value="<%= item.customer_id %>" >
+            <button class="btn" type="submit">Make the order</button>
+        </form>
+    </article>
+    <% }); %>
+    </div>
+    
+    Free Tables:
+
+    
+
+    <div class="grid">
+    <% not_booked_tables.forEach(function(item) { %> 
+    <article class="card product-item">
+        <header class="card__header">
+            <h1 class="product__title">
+                <%= item.table_id %>
+                <%= item.slot_no %>
+                
+                
+            </h1>
+        </header>
+        <div class="card__content">
+            <h2 class="product__price">$
+                <%= item.seater %>
+                
+               
+            </h2>
+            
+            
+        </div>
+        
+    </article>
+    <% }); %>
+    </div>
+
+    
+      
+</main>
+<%- include('./includes/end.ejs') %>

@@ -7,9 +7,9 @@ const bodyParser = require('body-parser');
 
 const signRo = require('./routes/signup_in');
 const custRo = require('./routes/customer');
-// const delRo = require('./routes/delivery');
-// const kitRo = require('./routes/kitchen');
-// const manRo = require('./routes/manager');
+const delRo = require('./routes/delivery');
+const kitRo = require('./routes/kitchen');
+const manRo = require('./routes/manager');
 
 const pool =  require('./utils/database');
 
@@ -24,9 +24,9 @@ app.use(express.static(path.join(__dirname,'public')));
 
 app.use('/',signRo);
 app.use('/customer',custRo);
-// app.use('/kitchen',kitRo);
-// app.use('/delivery',delRo);
-// app.use('/manager',manRo);
+app.use('/kitchen',kitRo);
+app.use('/delivery',delRo);
+app.use('/manager',manRo);
 
 // app.get('/signin', (req,res) =>{
 //     res.coo
