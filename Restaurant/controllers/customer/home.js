@@ -5,7 +5,7 @@ exports.get_home = (req,res,next) => {
     const { cookies } =req;
     console.log(cookies);
     if('user_id' in cookies){
-        console.log('correct page')
+        // console.log('correct page')
         const cust_id=cookies.user_id;
         if(cookies.account_type=='customer'){
             Menu.get_menu().then((answer1) => {

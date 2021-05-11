@@ -79,13 +79,13 @@ module.exports = class Table{
     }
     static get_not_booked_tables(slotno){
         if(slotno == 1){
-            return pool.query("select * from tables where slot1_status!='booked'; ");
+            return pool.query("select *,1 as slot_no from tables where slot1_status!='booked'; ");
         }
         else if(slotno==2){
-            return pool.query("select * from tables where slot2_status!='booked';");
+            return pool.query("select *,2 as slot_no from tables where slot2_status!='booked';");
         }
         else{
-            return pool.query("select * from tables where slot3_status!='booked';");
+            return pool.query("select *,3 as slot_no from tables where slot3_status!='booked';");
         }
     }
     static get_booked_tables(slotno){

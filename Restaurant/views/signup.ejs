@@ -1,12 +1,16 @@
 <form action="/signup" method="post">
-    sign up either as a customer / delivery person
+    <h2>Welcome to Sunshine Restaurant</h2>
+    Sign up either as a customer / delivery person
     <label for="name">Name:</label>
     <input name="name"type="text" required>
+    <br></br>
     <label for="number">Mobile Number:</label>
     <input type="tel" name="number" value="" pattern="[0-9]{10}" placeholder="9999999999">
+    <br></br>
     <label for="email_id">Email:</label>
     <input type="email" name="email_id" value="" placeholder="example@gmail.com" required>
-    <label for="password">Password:</label>
+    <br></br>
+    <label for="passwd">Password:</label>
     <input type="password" name="passwd" value="" placeholder="" required>
     <br><br>
     <label for="address">Choose Account Type:</label>
@@ -14,16 +18,16 @@
         <option value="customer">Customer</option>
         <option value="delivery">Delivery Person</option>
     </select>
-    <br><br>
+    <br></br>
     If you chose customer above,then fill this:
     <label for="address">Address:</label>
-    <select name="address" >
-        <option value="">None</option>
+    <select name="address"  >
+        
         <% addrs.forEach(function(addr) { %>
             <option value="<%= addr.addr_id %>" ><%= addr.name %></option>
         <% }); %>
     </select>
-    <br>
+    <br></br>
     If you chose delivery above,then fill this:
     <label for="prim_address">Primary Address:</label>
     <select name="prim_address" >
@@ -37,6 +41,7 @@
             <option value="<%= addr.addr_id %>" ><%= addr.name %></option>
         <% }); %>
     </select>
+    <br></br>
     <button type="submit"> Sign Up</button>
 </form>
 <script>

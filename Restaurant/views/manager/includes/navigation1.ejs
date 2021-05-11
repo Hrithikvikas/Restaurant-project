@@ -5,29 +5,31 @@
         <ul class="main-header__item-list">
 
             <li class="main-header__item">
-                <a class="<%= path === '/customer/home' ? 'active' : '' %>" href="/customer/home">Home</a>
+                <a class="<%= path === '/manager/home' ? 'active' : '' %>" href="/manager/home">Home</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/customer/cart' ? 'active' : '' %>" href="/customer/cart">Cart</a>
+                <a class="<%= path === '/manager/edit_menu' ? 'active' : '' %>" href="/manager/edit_menu">Edit Menu</a>
             </li>
             <li class="main-header__item">
-                <a class="<%= path === '/customer/orders' ? 'active' : '' %>" href="/customer/orders">Orders</a>
+                <a class="<%= path === '/manager/grocery' ? 'active' : '' %>" href="/manager/grocery">Groceries</a>
             </li>
             <li class="main-header__item">
-                <a class="<%=path === '/customer/profile'  ? 'active' : '' %>"  href="/customer/profile">Profile</a>
+                <a class="<%= path === '/manager/analytics' ? 'active' : '' %>" href="/manager/analytics">Analytics</a>
             </li>
             <li class="main-header__item">
-                <a class="<%=path === '/customer/tables'  ? 'active' : '' %>"  href="/customer/tables">Tables</a>
+                <a class="<%= path === '/manager/pending_approval' ? 'active' : '' %>" href="/manager/pending_approval">Pending Approvals</a>
             </li>
             <li class="main-header__item">
-                <a class="<%=path === '/login'  ? 'active' : '' %>"  href="/login">Log Out</a>
+                <a class="<%= path === '/manager/prepared_orders' ? 'active' : '' %>" href="/manager/prepared_orders">Prepared Orders</a>
             </li>
-
+            <li class="main-header__item">
+                <a class="<%= path === '/logout' ? 'active' : '' %>" href="/logout">Log Out</a>
+            </li>
         </ul>
     </nav>
 </header>
 
-<% /* <nav class="mobile-nav">
+<nav class="mobile-nav">
         <ul class="mobile-nav__item-list">
                 <li class="mobile-nav__item">
                     <a class="<%= path === '/' ? 'active' : '' %>" href="/">Shop</a>
@@ -50,4 +52,4 @@
                     </a>
                 </li>
             </ul>
-</nav> */ %>
+</nav>

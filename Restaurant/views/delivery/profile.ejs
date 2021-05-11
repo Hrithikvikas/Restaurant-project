@@ -16,7 +16,7 @@
         <label for="number">Phone Number:</label>
         <input type="tel" name="number" value="<%= deliv.phone %>" pattern="[0-9]{10}">
         <label for="passwd">Password:</label>
-        <input type="password" name="passwd" value="<%= deliv.password %>" readonly>
+        <input type="password" name="passwd" value="<%= deliv.password %>" >
         <label for="primary_address">Primary address:</label>
             <select name="primary_address">
                 <% if (deliv.primary_address){ %>

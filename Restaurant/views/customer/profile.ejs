@@ -18,7 +18,7 @@
         <label for="Number">Phone Number:
         <input type="tel" name="number" value="<%= cust.phone %>" pattern="[0-9]{10}">
         <label for="Number">Password:
-        <input type="password" name="passwd" value="<%= cust.password %>" readonly>
+        <input type="password" name="passwd" value="<%= cust.password %>" >
         <label for="address">Choose address</label>
             <select name="address">
                 <% if (cust.address){ %>

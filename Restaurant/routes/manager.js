@@ -10,7 +10,7 @@ const groceryCon = require('../controllers/manager/grocery');
 const edit_menuCon=  require('../controllers/manager/edit_menu');
 const menuCon= require('../controllers/manager/menu');
 const prep_ordCon = require('../controllers/manager/prepared_orders');
-const { route } = require('./login');
+
 const router = express.Router();
 
 router.get('/home',homeCon.get_test);

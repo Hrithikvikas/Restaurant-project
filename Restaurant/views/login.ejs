@@ -1,16 +1,20 @@
 <body>
+    <h2>Welcome to Sunshine Restaurant</h2>
     <form action="/login" method="post">
         <label for="email_id">Email id</label>
         <input name="email_id" type="email" required>
+        <br></br>
         <label for="passwd">Password</label>
         <input name="passwd" type="password">
-        <label for="address">Choose address</label>
+        <br></br>
+        <label for="address">Choose Account Type:</label>
          <select name="account_type">
             <option value="customer">Customer</option>
             <option value="delivery">Delivery Person</option>
             <option value="kitchen">Kitchen</option>
             <option value="manager">Manager</option>
         </select>
+        <br></br>
         <button class="btn" type="submit">Log in</button>        
     </form>
 </body>

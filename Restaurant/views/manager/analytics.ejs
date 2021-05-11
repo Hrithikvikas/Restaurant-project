@@ -4,7 +4,7 @@
 </head>
 
 <body>
-<%- include('./includes/navigation.ejs') %>
+<%- include('./includes/navigation1.ejs') %>
 
 <main>
     <h1>Analytics</h1>
@@ -21,10 +21,9 @@
                 <label for="number_of_orders"><%= item.number_of_orders %> </label>
                 </br>
             </div>
-        </article>  
+        
     <% }); %>
-    </div>
-    <div class="grid">
+</article>  
         <article class="card product-item">
     	<h2>TOTAL NUMBER OF ORDERS PREPARED BY KITCHEN IN LAST ONE WEEK : </h2>
     	<br><br>
@@ -32,10 +31,10 @@
             <div class="card__actions">
                 <label for="total_orders"><%= item.total_orders %> </label>
             </div>
-        </article>  
+        
     <% }); %>
-    </div>
-    <div class="grid">
+    </article>  
+
         <article class="card product-item">
     	<h2>AMOUNT OF EACH RECIPE ORDERED BY ONLINE ORDERS</h2>
     	<br><br>
@@ -51,10 +50,11 @@
                 <label for="mydate"><%= item.mydate.toDateString() %> </label>
                 </br>
             </div>
-        </article>  
+       
     <% }); %>
-    </div>
-    <div class="grid">
+   
+</article>  
+    
         <article class="card product-item">
     	<h2>AMOUNT OF EACH RECIPE ORDERED BY DINE IN ORDERS</h2>
     	<br><br>
@@ -70,8 +70,9 @@
                 <label for="mydate"><%= item.mydate.toDateString() %> </label>
                 </br>
             </div>
-        </article>  
+          
     <% }); %>
+</article>
     </div>
 </main>
 </body>

@@ -4,7 +4,7 @@
 </head>
 
 <body>
-<%- include('./includes/navigation.ejs') %>
+<%- include('./includes/navigation1.ejs') %>
 
 <main>
     <% if(pending.length==0){ %>
@@ -20,7 +20,7 @@
                 </h1>
             </header>
             <div class="card__content">
-                <h2 class="product__price">$
+                <h2 class="product__price">
                    <h3>Primary Address: <%= item.primary_address %> </h3>
                    <h3>Secondary Address:<%= item.secondary_address %> </h3>    
                 </h2>

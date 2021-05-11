@@ -4,7 +4,7 @@ const express = require('express');
 
 const homeCon = require('../controllers/delivery/home');
 const profileCon = require('../controllers/delivery/profile');
-const { route } = require('./login');
+
 const router = express.Router();
 
 router.get('/home',homeCon.get_test);

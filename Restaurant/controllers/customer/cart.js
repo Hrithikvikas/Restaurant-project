@@ -2,7 +2,7 @@ const Cust=require('../../models/customer');
 const Addr=require('../../models/addr');
 exports.get_cart = (req,res,next) => {
     const { cookies } =req;
-    console.log(cookies);
+    // console.log(cookies);
     if('user_id' in cookies){
         console.log('correct page')
         const cust_id=cookies.user_id;
@@ -16,7 +16,7 @@ exports.get_cart = (req,res,next) => {
                        totalprice=totalprice+c_row.quantity*c_row.price;
                     });
                 // var 
-                    console.log(p1);
+                    // console.log(p1);
                     res.render('./customer/cart',{
                     pageTitle: 'Cart',
                     path: '/customer/cart',

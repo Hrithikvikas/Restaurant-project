@@ -5,7 +5,7 @@ const Pending=require('../models/pend_delivery');
 
 exports.get_login =  (req,res,next) => {
     const { cookies } =req;
-    console.log(cookies);
+    // console.log(cookies);
     if('user_id' in cookies){
         res.redirect(cookies.account_type+'/home');
     }
@@ -16,23 +16,28 @@ exports.get_login =  (req,res,next) => {
 
 exports.user_logout = (req,res,next) => {
     const { cookies } =req;
-    console.log(cookies);
+    // console.log(cookies);
     if('user_id' in cookies){
         // console.log('correct page')
         const user_id=cookies.user_id;
+        // for(int i=0;i<cookies.length;i++){
+        //     res.clearCookie
+        // }
         res.clearCookie('user_id');
         res.clearCookie('username');
         res.clearCookie('slot_no');
         res.clearCookie('account_type');
+        res.clearCookie('table_id');
+        res.clearCookie('customer_id');
         res.render('./logout');
     }
     else{
-        res.send('No user is logged in ');
+        // res.send('No user is logged in ');
         res.redirect('/login');
     }
 }
 exports.post_login =  (req,res,next) => {
-    console.log('came here');
+    // console.log('came here');
     console.log(req.body.account_type);
     if(req.body.account_type=="customer"){
         Cust.get_user(req.body.email_id).then((answer1) =>{
@@ -40,7 +45,7 @@ exports.post_login =  (req,res,next) => {
             // const user=users.find(user => user);
             if(answer1.rowCount==0){
                 
-                console.log('not correct      dummy');
+                console.log('No such customer ');
                 res.redirect('/login');//include error message
             }
             else{
@@ -62,8 +67,7 @@ exports.post_login =  (req,res,next) => {
                 // }
                 else{
                     console.log('not correct password');
-                    console.log(answer1.rows[0].password.length);
-                    console.log(req.body.passwd);
+
                     res.redirect('/login');//include error message
                 }
             }
@@ -152,8 +156,6 @@ exports.post_login =  (req,res,next) => {
                 }
                 else{
                     console.log('not correct password');
-                    // console.log(answer1.rows[0].password.length);
-                    console.log(req.body.passwd);
                     res.redirect('/login');//include error message
                 }
                 

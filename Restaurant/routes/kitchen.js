@@ -4,7 +4,7 @@ const express = require('express');
 
 const homeCon = require('../controllers/kitchen/home');
 const groceryCon = require('../controllers/kitchen/grocery');
-const { route } = require('./login');
+
 const router = express.Router();
 
 router.get('/home',homeCon.get_test);

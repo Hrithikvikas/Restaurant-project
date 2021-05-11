@@ -13,68 +13,34 @@ exports.get_test = (req,res,next) => {
         if(cookies.account_type=='manager'){
             Table.get_all_tables().then((answer1) => {
                 
-                // var p1=answer1.rows;
-                // var p2=[];
-                // var p3;
+
                 var today = new Date();
-                // console.log(Date.prototype.toGMTS);
+                var ter1=today.toUTCString();
+               
+                console.log( ter1);
+                var tem1=ter1.split(' ');
+                // tem1=tem1[]
+                var hr=tem1[4][0]+tem1[4][1];
+                hr=parseInt(hr);
+                // console.log(typeof hr);
                 var slot=0;
-                if(today.getHours()<10){
+                if(hr<14){//slot1: 11-14
                     slot=1;
                 }
                 else{
-                    if(today.getHours()<14){
+                    if(hr<18){//slot2 15-18
                         slot=2;
                     }
-                    else{
+                    else{//slot3 20-23
                         slot=3;
                     }
                 }
                 console.log('slot:'+slot);
-		// // Sun May 09 2021 11:24:44 GMT+0530
-		// console.log('today:'+today);
-		// var dd =  String(today.getDate()).padStart(2, '0');
-		// var mm = String(today.getMonth() + 1).padStart(2, '0'); //January is 0!
-		// var yyyy = today.getFullYear();
-
-		// today = yyyy + '-' + mm + '-' + dd;
                 Table.get_not_booked_tables(slot).then((answer3) =>{
                     //to get booked tables for tnhe slot
                     var t1=answer3.rows;
                     Table.get_booked_tables(slot).then((answer4) =>{
                         var t2=answer4.rows;
-                   
-                    // // p3=answer3.rows;
-                    // p1.forEach(function(c_row){
-                    //     var today = new Date();
-                    //     var slot=0;
-                    //     if(today.getHours()<10){
-                    //         slot=1;
-                    //         if(c_row.slot1_status =='booked'){
-                    //             Table.get_cust_id(c_row.table_id,slot).then((answer2) => {
-                    //                 p2.push(answer2.rows[0]);
-                    //             });
-                    //         }
-                    //         else{}
-                    //     }
-                    //     else {
-                    //         if(today.getHours()<14){
-                    //             slot=2;
-                    //             if(c_row.slot2_status =='booked'){
-                    //                 Table.get_cust_id(c_row.table_id,slot).then((answer2) => {
-                    //                     p2.push(answer2.rows[0]);
-                    //                 });
-                    //             }
-                    //         }
-                    //         else{
-                    //             slot=3;
-                    //             if(c_row.slot3_status =='booked'){
-                    //                 Table.get_cust_id(c_row.table_id,slot).then((answer2) => {
-                    //                     p2.push(answer2.rows[0]);
-                    //                 });
-                    //             }
-                    //         }
-                    //     }
                     res.cookie('slot_no',slot);
                     // res.cookies('table_id')
                         // console.log('not booked');

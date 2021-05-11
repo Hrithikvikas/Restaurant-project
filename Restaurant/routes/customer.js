@@ -7,7 +7,7 @@ const ordersCon = require('../controllers/customer/orders');
 const profileCon = require('../controllers/customer/profile');
 const tableCon = require('../controllers/customer/tables');
 const booktableCon=  require('../controllers/customer/booktable');
-const { route } = require('./login');
+
 const router = express.Router();
 
 router.get('/home',homeCon.get_home);

@@ -4,7 +4,7 @@
 </head>
 
 <body>
-<%- include('./includes/navigation.ejs') %>
+<%- include('./includes/navigation1.ejs') %>
 
 <main>
 	<h1>Grocery List</h1>
@@ -13,7 +13,7 @@
             <div class="card__actions">
                 <form action="/manager/grocery" method="post">
                     <label for="item_quantity"><%= item.name %> </label>
-                    <input type="text" name="item_quantity" value=<%= item.quantity %> >
+                    <input type="text" name="item_quantity" value="<%= item.quantity %>" min="1" required>
                     <button class="btn" type="submit">Save Changes</button>
                     <input type="hidden" name="item_id" value=<%= item.item_id %> >
                 </form>

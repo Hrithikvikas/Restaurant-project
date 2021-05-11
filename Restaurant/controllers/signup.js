@@ -5,7 +5,7 @@ const Pending= require('../models/pend_delivery');
 exports.get_signup =  (req,res,next) => {
     //display available addresses.
     const { cookies } =req;
-    console.log(cookies);
+    
     if('user_id' in cookies){
         res.redirect(cookies.account_type+'/home');
     }
@@ -66,6 +66,7 @@ exports.post_signup =  (req,res,next) => {
                     if(answer2.rowCount==0){
                         //sign up into Pending.
                         Pending.create_user(name,number,passwd,email,prim_address,sec_address).then((answer3) => {
+                            console.log('Your account has been sent forapproval');
                             res.redirect('/login');
                         });
                     }
